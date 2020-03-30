@@ -1,1 +1,8 @@
 # FunctionalProgrammingLabs
+## Lab1 "Lists"
+1. Find the minimum element and the position of all its entries in the list.
+2. Calculate the statistics of the entries in the list
+## Lab2 "Lists (Additional tasks)"
+Divide a given list into several lists, writing down in the first list values less than 1!, in the second - less than 2! but not on the previous list, in the third - less than 3! but did not get to the previous two lists, the fourth is less than 4! but not in the previous lists, etc.
+## Lab3 "Finite-state automata"
+For given words v and w, determine if the finite state machine admits at least one word that can be represented as vywy for some word y. If yes, give an example of the corresponding word vywy.
