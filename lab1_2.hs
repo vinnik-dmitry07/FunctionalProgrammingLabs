@@ -9,6 +9,6 @@ main =
   putStr $ 
   unlines $ 
   map 
-    (\(element, entrances) ->  (show element) ++ " - " ++ (show entrances)) $
+    (\(element, entries) ->  (show element) ++ " - " ++ (show entries)) $
     getDistribution [1, 2, 3, 3]
   
