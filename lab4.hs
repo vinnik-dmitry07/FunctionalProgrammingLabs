@@ -110,4 +110,14 @@ main = do
     --traceShowM ("rules_", rules_) 
     --traceShowM ("eps_nont", eps_nont)
     
-    mapM_ print $ zip nonterms (map get_words_minlength $ nonterms)
+    mapM_ print $ 
+        zip 
+            nonterms 
+            (map 
+                (\x -> 
+                    if isJust x
+                        then 
+                            let res = snd $ fromJust x
+                            in Just (res, length $ res)
+                        else Nothing)
+                (map get_words_minlength $ nonterms))
