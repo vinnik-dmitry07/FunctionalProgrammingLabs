@@ -8,7 +8,7 @@ Divide a given list into several lists, writing down in the first list values le
 Find all the "top peaks" of the list and their positions. A list item is an upper peak if it is larger than its existing neighbors. Consider that the list consists of different items. For example, in the list `[5, 4, 2, 8, 3, 1, 6, 9, 5]` the upper peaks and their positions are: `(5,1), (8,4), (9,8)`.
 ## Lab3 "Finite-state automata" (Haskell)
 For given words v and w, determine if the finite state machine admits at least one word that can be represented as _vywy_ for some word _y_. If yes, give an example of the corresponding word _vywy_.
-## Lab4 "Context-free grammars" (in progress)
+## Lab4 "Context-free grammars" (Haskell)
 For each non-terminal A find:
 ```
 minLengthR(A) = min{length (w) | A =>+ Aw, w is a word in the terminal alphabet}
