@@ -1,4 +1,3 @@
-Дмитрий, [27.03.20 12:00]
 import Prelude hiding (Word)
 import Control.Monad (msum, foldM)
 import Data.Maybe (catMaybes, isJust, fromJust)
@@ -111,7 +110,6 @@ search_word_ends word nodes =
         else Nothing)
     nodes)
 
-Дмитрий, [27.03.20 12:00]
 takeHelper :: 
   [(State, [State])] -> 
   [(Set (Letter, State), [Set (Word, State)])] -> 
