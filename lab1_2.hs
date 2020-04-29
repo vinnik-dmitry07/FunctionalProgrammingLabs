@@ -11,4 +11,3 @@ main =
   map 
     (\(element, entries) ->  (show element) ++ " - " ++ (show entries)) $
     getDistribution [1, 2, 3, 3]
-  
