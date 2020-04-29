@@ -103,13 +103,73 @@ get_words_minlength symbol = do
     --traceShowM ("iterator'", take 5 $ iterator')
     
     find (\(nonterms, w) -> head nonterms == symbol && last nonterms == symbol) $ concat $ iterator'
+
+f1 guess_res not_compl new_res = do
+    let guesses = 
+        Map.fromList
+            [(
+                l,             
+                [foldl 
+                    (\su x -> 
+                        su + 
+                            if is_term x 
+                                then 1 
+                                else 
+                                    if (Map.member x guess_res) && (isJust $ guess_res ! x) 
+                                        then fromJust $ guess_res ! x 
+                                        else 0) 
+                    0 word | word <- r ]
+            ) | (l, r) <- Map.toList not_compl] 
+
+    let m = [(l, minimum $ zip r r1) | ((l, r), (l1, r1)) <- zip (Map.toList $ guesses) (Map.toList not_compl)]          
+
+    let fi = find (\e -> all isJust $ map (\x -> new_res ! x) $ snd $ snd e) m
+
+    if isJust fi 
+        then do
+            let res = fromJust fi      
+            (fst res, fst $ snd $ res)
+    else do
+        let guess_res' = 
+            Map.fromList 
+                [(l, r'') | 
+                    (l, r) <- Map.toList new_res,
+                    let r' = minimum $ guesses ! l,
+                    let r'' = 
+                            if Map.member l guesses
+                            then if (r' /= 0) then Just r' else Nothing
+                            else r]                   
+      f1 guess_res' not_compl new_res
+
+f2 res = do
+    let not_compl = Map.fromList [(l, r) | (l, r) <- Map.toList rules_, isNothing $ res ! l] 
+    --traceShowM $ not_compl
+  
+    let (nont, len) = f1 res not_compl res
+    --traceShowM (nont, len)
+  
+    Map.fromList [(l, r') | (l, r) <- Map.toList res, let r' = if l == nont then Just len else r]
+
+get_min_len = do
+    let step1 = 
+        Map.fromList 
+            [(l, r') | 
+                (l, r) <- Map.toList rules_, 
+                let r' = 
+                    if any (=="") r
+                        then Just 0
+                        else
+                            if all (all is_term) r
+                                then Just $ minimum $ map length $ r
+                                else Nothing]
+    takeWhile (any (isNothing . snd) . Map.toList) $ iterate f2 step1
     
 main = do
     let nonterms = ['S', 'A', 'B', 'C', 'D', 'E']
     
     --traceShowM ("rules_", rules_) 
     --traceShowM ("eps_nont", eps_nont)
-    
+    print get_min_len
     mapM_ print $ 
         zip 
             nonterms 
