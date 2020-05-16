@@ -21,7 +21,7 @@ wordsMinLenR(A) = {x | A =>* Ax, x is a word in the terminal alphabet, length(x)
 1) Program and test three unary Maybe-functions to calculate the given three formulas.
 2) Using monad operations, program and test the Maybe-function to calculate the superposition of the above three functions:
     1. Submit the desired function using do-notation.
-    2. (Not necessarily). Submit the desired function without using do-notation.
+    2. (Optional). Submit the desired function without using do-notation.
 3) (Optional). Program and test the binary Maybe-function to calculate the last of the three given formulas (here n is considered a real number).
 4) (Optional). Using monad operations, program and test the Maybe-function to calculate such a superposition, when the above-mentioned binary function is replaced by the first function from point 1 instead of its first argument, and the second instead of the second argument:
     1. Submit the desired function using do-notation.
