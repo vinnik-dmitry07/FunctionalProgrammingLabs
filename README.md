@@ -17,6 +17,8 @@ and
 ```
 wordsMinLenR(A) = {x | A =>* Ax, x is a word in the terminal alphabet, length(x) = minLengthR(A)}
 ```
+## Lab5 "Expert systems" (SWI-Prolog)
+Develop a simple expert system with more than 8 entities, generalizing terms, and properties that have multiple alternatives.
 ## Lab6 "Monads" (Haskell)
 1) Program and test three unary Maybe-functions to calculate the given three formulas.
 2) Using monad operations, program and test the Maybe-function to calculate the superposition of the above three functions:
