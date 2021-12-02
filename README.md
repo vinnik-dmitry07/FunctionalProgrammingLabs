@@ -1,4 +1,4 @@
-# FunсLogProgrammingLabs
+# fun-log-programming-labs
 ## Lab1 "Lists" (Haskell, Prolog)
 1. Find the minimum element and the position of all its entries in the list.
 2. Calculate the statistics of the entries in the list.
